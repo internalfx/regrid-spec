@@ -1,5 +1,5 @@
 
-# ReGrid
+# ReGrid Spec
 
 This is the official spec for the [ReGrid](https://github.com/internalfx/regrid) Nodejs library.
 
