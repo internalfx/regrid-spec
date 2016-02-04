@@ -14,6 +14,10 @@ ReGrid is a method of storing large files inside a RethinkDB database.
 - **Scalable** - Easily store large files in RethinkDB, distributed across the cluster.
 - **Consistent** - Sha256 hashes are calculated when the file is written, and verified when read back out.
 
+### Contents
+
+[Document Structure](#document-structure)
+
 ### Overview
 
 When a file is written to ReGrid, a **files** record is written to a **files table**. Then the file is broken up into **chunks** which are written as separate records in a **chunks table**. Once all the chunks are written, the **files** record is updated to show that the file is `Complete`. The file is now ready for read operations.
