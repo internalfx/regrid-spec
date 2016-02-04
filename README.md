@@ -146,7 +146,8 @@ var bucket = new ReGrid(connectionOptions, bucketOptions)
 
 // Takes no arguments, and is asynchronous. Node.js ReGrid library returns a promise, adapt to your chosen language.
 bucket.initBucket().then(function () {
-  // Ready to use.
+  // Tables and indexes MUST now be ready for use.
+  // use tableWait() and indexWait()
 })
 
 ```
