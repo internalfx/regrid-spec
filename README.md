@@ -87,7 +87,24 @@ r.table('<ChunksTable>').indexCreate('fileid_num', [r.row('file_id'), r.row('num
 
 ### Bucket Contructor
 
-TODO
+ReGrid Drivers MUST provide a constructor to return a new `Bucket` instance, which exposes all the public API methods.
+
+```javascript
+
+var connectionOptions = {
+  // required connection options. Adapt to your chosen language.
+}
+
+var bucketOptions = {
+  bucketName: 'fs',
+  chunkSizeBytes: 1024 * 255, // 255KB SHOULD be the default chunk size.
+  concurrency: 10 // OPTIONAL - useful if you are writing files asynchronously
+}
+
+var bucket = new ReGrid(connectionOptions, bucketOptions)
+
+bucket // a new bucket instance
+```
 
 ### Initializing Bucket Tables and Indexes
 
