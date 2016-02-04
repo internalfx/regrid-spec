@@ -42,8 +42,8 @@ When a file is written to ReGrid, a **files** record is written to a **files tab
 | id | a unique ID for this document. |
 | length | the length of this stored file, in bytes. |
 | chunkSizeBytes | the size, in bytes, of each data chunk of this file. This value is configurable by file. The default is 255KB (1024 * 255). |
-| finishedAt | the date and time this file finished writing to RethinkDBFS. The value of this field MUST be the datetime when the upload completed, not the datetime when it was begun. |
-| startedAt | the date and time this file started writing to RethinkDBFS. The value of this field MUST be the datetime when the upload started, not the datetime when it was finished. |
+| finishedAt | the date and time this file finished writing to ReGrid. The value of this field MUST be the datetime when the upload completed, not the datetime when it was begun. |
+| startedAt | the date and time this file started writing to ReGrid. The value of this field MUST be the datetime when the upload started, not the datetime when it was finished. |
 | deletedAt | the date and time this files status was set to `Deleted`. The value of this field MUST be the datetime when file was marked `Deleted`. |
 | sha256 | SHA256 checksum for this user file, computed from the file’s data, stored as a hex string (lowercase). |
 | filename | the name of this stored file; this does not need to be unique. |
