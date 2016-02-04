@@ -56,7 +56,7 @@ When a file is written to ReGrid, a **files** record is written to a **files tab
 {
   "id": "<String>",
   "files_id": "<String>",
-  "n": "<Number>",
+  "num": "<Number>",
   "data": "<Binary>"
 }
 ```
@@ -65,5 +65,5 @@ When a file is written to ReGrid, a **files** record is written to a **files tab
 |---|---|
 | id | a unique ID for this document. |
 | files_id | the id for this file (the id from the files table document). |
-| n | the index number of this chunk, zero-based |
+| num | the index number of this chunk, zero-based |
 | data | a chunk of data from the user file |
