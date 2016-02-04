@@ -128,7 +128,7 @@ The driver MUST check whether the tables already exist before creating them. If 
 
 ##### Indexes
 
-For efficient retrieval of files and chunks, a few indexes are required by ReGrid.
+For efficient retrieval of files and chunks, a few indexes are required by ReGrid. Indexes MUST be named as shown below.
 
 ```javascript
 r.table('<FilesTable>').indexCreate('file_ix', [r.row('status'), r.row('filename'), r.row('finishedAt')])
