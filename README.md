@@ -83,6 +83,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 # API
 
+**Note:** Code examples are offered to give a sense of the API design of ReGrid. Adapt to your chosen language as necessary.
+
 ### Bucket Contructor
 
 `new ReGrid(connectionOptions, bucketOptions)`
