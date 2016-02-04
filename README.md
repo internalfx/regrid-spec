@@ -78,7 +78,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 `new ReGrid(connectionOptions, bucketOptions)`
 
-ReGrid Drivers MUST provide a constructor to return a new `Bucket` instance, which exposes all the public API methods.
+ReGrid drivers MUST provide a constructor to return a new `Bucket` instance, which exposes all the public API methods.
 
 ###### Code Example
 
@@ -105,11 +105,13 @@ bucket // a new bucket instance
 
 `bucket.initBucket()`
 
-ReGrid Drivers MUST provied a method to create required tables and indexes.
+ReGrid drivers MUST provied a method to create required tables and indexes.
 
 ##### Table Names
 
 Two tables MUST be created for ReGrid to function, the 'files' table and the 'chunks' table. Tables MUST be a combination of the `bucketName` followed by an underscore and the table type. Given the default `bucketName` of 'fs' the files table MUST be named `fs_files` and the chunks table MUST be named `fs_chunks`
+
+The driver MUST check whether the tables already exist before creating them. If creating the tables fails the driver MUST return an error.
 
 ##### Indexes
 
@@ -120,6 +122,8 @@ r.table('<FilesTable>').indexCreate('file_ix', [r.row('status'), r.row('filename
 
 r.table('<ChunksTable>').indexCreate('chunk_ix', [r.row('file_id'), r.row('num')])
 ```
+
+The driver MUST check whether the indexes already exist before creating them. If creating the indexes fails the driver MUST return an error.
 
 ###### Code Example
 
