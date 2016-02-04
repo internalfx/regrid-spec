@@ -72,22 +72,15 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 | num | the index number of this chunk, zero-based |
 | data | a chunk of data from the user file |
 
-
-### Indexes
-
-For efficient retrieval of files and chunks, a few indexes are required by ReGrid.
-
-```javascript
-r.table('<FilesTable>').indexCreate('status_filename_finishedat', [r.row('status'), r.row('filename'), r.row('finishedAt')])
-
-r.table('<ChunksTable>').indexCreate('fileid_num', [r.row('file_id'), r.row('num')])
-```
-
 # API
 
 ### Bucket Contructor
 
+`new ReGrid(connectionOptions, bucketOptions)`
+
 ReGrid Drivers MUST provide a constructor to return a new `Bucket` instance, which exposes all the public API methods.
+
+###### Code Example
 
 ```javascript
 
@@ -108,7 +101,36 @@ bucket // a new bucket instance
 
 ### Initializing Bucket Tables and Indexes
 
-TODO
+`bucket.initBucket()`
+
+ReGrid Drivers MUST provied a method to create required tables and indexes.
+
+##### Table Names
+
+Two tables MUST be created for ReGrid to function, the 'files' table and the 'chunks' table. Tables MUST be a combination of the `bucketName` followed by an underscore and the table type. Given the default `bucketName` of 'fs' the files table MUST be named `fs_files` and the chunks table MUST be named `fs_chunks`
+
+##### Indexes
+
+For efficient retrieval of files and chunks, a few indexes are required by ReGrid.
+
+```javascript
+r.table('<FilesTable>').indexCreate('file_ix', [r.row('status'), r.row('filename'), r.row('finishedAt')])
+
+r.table('<ChunksTable>').indexCreate('chunk_ix', [r.row('file_id'), r.row('num')])
+```
+
+###### Code Example
+
+```javascript
+
+var bucket = new ReGrid(connectionOptions, bucketOptions)
+
+// Takes no arguments, and is asynchronous. Node.js ReGrid library returns a promise, adapt to your chosen language.
+bucket.initBucket().then(function () {
+  // Ready to use.
+})
+
+```
 
 ### Writing Files
 
