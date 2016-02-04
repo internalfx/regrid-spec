@@ -17,6 +17,8 @@ ReGrid is a method of storing large files inside a RethinkDB database.
 ### Contents
 
  - [Document Structure](#document-structure)
+   - [Files Record](#files-record)
+   - [Chunks Record](#chunks-record)
  - [API](#api)
    - [Bucket Contructor](#bucket-contructor)
    - [Initializing Bucket Tables and Indexes](#initializing-bucket-tables-and-indexes)
