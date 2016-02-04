@@ -104,3 +104,15 @@ TODO
 ### Finding Files
 
 TODO
+
+### Deleting Files
+
+TODO
+
+### Renaming Files
+
+TODO
+
+### Maintenance Operations
+
+TODO
