@@ -99,6 +99,8 @@ var bucket = new ReGrid(connectionOptions, bucketOptions)
 bucket // a new bucket instance
 ```
 
+---
+
 ### Initializing Bucket Tables and Indexes
 
 `bucket.initBucket()`
