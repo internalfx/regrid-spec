@@ -89,6 +89,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ReGrid drivers MUST provide a constructor to return a new `Bucket` instance, which exposes all the public API methods.
 
+`connectionOptions` MAY be an existing connection, if that is more suitable to your chosen language.
+
 ###### Code Example
 
 ```javascript
