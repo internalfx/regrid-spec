@@ -18,6 +18,10 @@ ReGrid is a method of storing large files inside a RethinkDB database.
 
 When a file is written to ReGrid, a **files** record is written to a **files table**. Then the file is broken up into **chunks** which are written as separate records in a **chunks table**. Once all the chunks are written, the **files** record is updated to show that the file is `Complete`. The file is now ready for read operations.
 
+### Terminology
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+
 # Document Structure
 
 #### Files record
@@ -78,3 +82,7 @@ r.table('<FilesTable>').indexCreate('status_filename_finishedat', [r.row('status
 
 r.table('<ChunksTable>').indexCreate('fileid_num', [r.row('file_id'), r.row('num')])
 ```
+
+# API
+
+### Store a File
