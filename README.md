@@ -85,4 +85,22 @@ r.table('<ChunksTable>').indexCreate('fileid_num', [r.row('file_id'), r.row('num
 
 # API
 
-### Store a File
+### Bucket Contructor
+
+TODO
+
+### Initializing Bucket Tables and Indexes
+
+TODO
+
+### Writing Files
+
+TODO
+
+### Reading Files
+
+TODO
+
+### Finding Files
+
+TODO
