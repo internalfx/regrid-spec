@@ -67,3 +67,14 @@ When a file is written to ReGrid, a **files** record is written to a **files tab
 | file_id | the id for this file (the id from the files table document). |
 | num | the index number of this chunk, zero-based |
 | data | a chunk of data from the user file |
+
+
+### Indexes
+
+For efficient retrieval of files and chunks, a few indexes are required by ReGrid.
+
+```javascript
+r.table('<FilesTable>').indexCreate('status_filename_finishedat', [r.row('status'), r.row('filename'), r.row('finishedAt')])
+
+r.table('<ChunksTable>').indexCreate('fileid_num', [r.row('file_id'), r.row('num')])
+```
