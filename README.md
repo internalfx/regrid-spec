@@ -1,5 +1,6 @@
 
-# ReGrid Spec
+ReGrid Spec
+===========
 
 This is the official spec for the [ReGrid](https://github.com/internalfx/regrid) Nodejs library.
 
@@ -31,7 +32,8 @@ When a file is written to ReGrid, a **files** record is written to a **files tab
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-# Document Structure
+Document Structure
+==================
 
 #### Files record
 
@@ -81,7 +83,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 | num | the index number of this chunk, zero-based |
 | data | a chunk of data from the user file |
 
-# API
+API
+===
 
 **Note:** Code examples are offered to give a sense of the API design of ReGrid. Adapt to your chosen language as necessary.
 
@@ -141,7 +144,6 @@ The driver MUST check whether the indexes already exist before creating them. If
 ###### Code Example
 
 ```javascript
-
 var bucket = new ReGrid(connectionOptions, bucketOptions)
 
 // Takes no arguments, and is asynchronous. Node.js ReGrid library returns a promise, adapt to your chosen language.
@@ -149,8 +151,9 @@ bucket.initBucket().then(function () {
   // Tables and indexes MUST now be ready for use.
   // use tableWait() and indexWait()
 })
-
 ```
+
+---
 
 ### Writing Files
 
@@ -161,7 +164,6 @@ Drivers SHOULD use their languages built-in stream abstraction. Otherwise, they 
 ###### Code Example
 
 ```javascript
-
 // An options object MAY be passed in. All fields are optional.
 var options = {
   chunkSizeBytes: 1024 * 255,
@@ -171,9 +173,46 @@ var options = {
 bucket.createWriteStream(filename, options) // returns a stream
 ```
 
+---
+
 ### Reading Files
 
-TODO
+`createReadStreamById(file_id)`
+
+Get a `readStream` by a files `id`
+
+###### Code Example
+
+```javascript
+
+bucket.createReadStreamById(file_id) // returns a stream
+```
+
+---
+
+`createReadStreamByFilename(filename, options)`
+
+Get a `readStream` by `filename`. Since filenames are not unique, there can be multiple "revisions" of a file. A user may optionally specify a `revision` in the options object.
+
+###### Code Example
+
+```javascript
+
+var options = {
+  // Revision numbers are defined as follows:
+  // 0 = the original stored file
+  // 1 = the first revision
+  // 2 = the second revision
+  // etc…
+  // -2 = the second most recent revision
+  // -1 = the most recent revision
+  // Defaults to -1 (the most recent revision).
+
+  revision: -1
+}
+
+bucket.createReadStreamByFilename(filename, options) // returns a stream
+```
 
 ### Finding Files
 
