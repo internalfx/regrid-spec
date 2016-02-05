@@ -179,7 +179,7 @@ bucket.createWriteStream(filename, options) // returns a stream
 
 `createReadStreamById(file_id)`
 
-Get a `readStream` by a files `id`
+Get a `readStream` by `id`
 
 ###### Code Example
 
