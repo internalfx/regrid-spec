@@ -154,7 +154,22 @@ bucket.initBucket().then(function () {
 
 ### Writing Files
 
-TODO
+`bucket.createWriteStream(filename, options)`
+
+Drivers SHOULD use their languages built-in stream abstraction. Otherwise, they MUST provide their own.
+
+###### Code Example
+
+```javascript
+
+// An options object MAY be passed in. All fields are optional.
+var options = {
+  chunkSizeBytes: 1024 * 255,
+  metadata: null
+}
+
+bucket.createWriteStream(filename, options) // returns a stream
+```
 
 ### Reading Files
 
