@@ -11,7 +11,7 @@ ReGrid is a method of storing large files inside a RethinkDB database.
 
 ### Features
 
-- **Reliable** - Files are distributed across the cluster, benefiting from RethinkDB's automatic failover.
+- **Reliable** - Files are replicated across the cluster, benefiting from RethinkDB's automatic failover.
 - **Scalable** - Easily store large files in RethinkDB, distributed across the cluster.
 - **Consistent** - Sha256 hashes are calculated when the file is written, and verified when read back out.
 
