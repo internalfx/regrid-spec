@@ -88,9 +88,7 @@ API
 
 **Note:** Code examples are offered to give a sense of the API design of ReGrid. Adapt to your chosen language as necessary.
 
-### Bucket Contructor
-
-`new ReGrid(connectionOptions, bucketOptions)`
+### `new ReGrid(connectionOptions, bucketOptions)`
 
 ReGrid drivers MUST provide a constructor to return a new `Bucket` instance, which exposes all the public API methods.
 
@@ -117,9 +115,7 @@ bucket // a new bucket instance
 
 ---
 
-### Initializing Bucket Tables and Indexes
-
-`bucket.initBucket()`
+### `bucket.initBucket()`
 
 ReGrid drivers MUST provied a method to create required tables and indexes.
 
@@ -155,9 +151,7 @@ bucket.initBucket().then(function () {
 
 ---
 
-### Writing Files
-
-`bucket.createWriteStream(filename, options)`
+### `bucket.createWriteStream(filename, options)`
 
 Drivers SHOULD use their languages built-in stream abstraction. Otherwise, they MUST provide their own.
 
@@ -175,9 +169,7 @@ bucket.createWriteStream(filename, options) // returns a stream
 
 ---
 
-### Reading Files
-
-`createReadStreamById(file_id)`
+### `createReadStreamById(file_id)`
 
 Get a `readStream` by `id`
 
@@ -190,7 +182,7 @@ bucket.createReadStreamById(file_id) // returns a stream
 
 ---
 
-`createReadStreamByFilename(filename, options)`
+### `createReadStreamByFilename(filename, options)`
 
 Get a `readStream` by `filename`. Since filenames are not unique, there can be multiple "revisions" of a file. A user may optionally specify a `revision` in the options object.
 
