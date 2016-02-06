@@ -4,6 +4,8 @@ ReGrid Spec
 
 This is the official spec for the [ReGrid](https://github.com/internalfx/regrid) Nodejs library.
 
+ReGrid is meant to be an open specification. You are encouraged to implement a compatible driver in your chosen language.
+
 - Authors [**Bryan Morris**](https://github.com/internalfx), [**Brian Chavez**](https://github.com/bchavez)
 - Advisors [**Daniel Mewes**](https://github.com/danielmewes)
 
